@@ -71,3 +71,37 @@ RSpec.configure do |config|
     end
   end
 end
+
+def test_data
+  @chef_1 = Chef.create!(name: "Emeril Lagasse")
+  @chef_2 = Chef.create!(name: "Gordon Ramsay")
+  @chef_3 = Chef.create!(name: "Guy Fieri")
+  @chef_4 = Chef.create!(name: "Bobby Flay")
+
+  @dish_1 = @chef_1.dishes.create!(name: "Chicken Parm", description: "Chicken Parmesan is a dish of chicken cutlet, topped with tomato sauce and melted cheese, usually mozzarella.")
+  @dish_2 = @chef_2.dishes.create!(name: "Fish and Chips", description: "Fish and chips is a hot dish of English origin consisting of fried battered fish and hot chips.")
+  @dish_3 = @chef_3.dishes.create!(name: "Burger", description: "A hamburger is a sandwich consisting of one or more cooked patties of ground meat, usually beef, placed inside a sliced bread roll or bun.")
+  @dish_4 = @chef_4.dishes.create!(name: "Steak", description: "A steak is a meat generally sliced across the muscle fibers, potentially including a bone.")
+
+  @ingredient_1 = Ingredient.create!(name: "Chicken", calories: 100)
+  @ingredient_2 = Ingredient.create!(name: "Parmesan", calories: 50)
+  @ingredient_3 = Ingredient.create!(name: "Tomato Sauce", calories: 25)
+  @ingredient_4 = Ingredient.create!(name: "Mozzarella", calories: 75)
+  @ingredient_5 = Ingredient.create!(name: "Fish", calories: 100)
+  @ingredient_6 = Ingredient.create!(name: "Chips", calories: 200)
+  @ingredient_7 = Ingredient.create!(name: "Bread", calories: 100)
+  @ingredient_8 = Ingredient.create!(name: "Beef", calories: 200)
+  @ingredient_9 = Ingredient.create!(name: "Steak", calories: 300)
+  @ingredient_10 = Ingredient.create!(name: "Bun", calories: 50)
+
+  @dish_ingredients_1 = DishIngredient.create!(dish_id: @dish_1.id, ingredient_id: @ingredient_1.id)
+  @dish_ingredients_2 = DishIngredient.create!(dish_id: @dish_1.id, ingredient_id: @ingredient_2.id)
+  @dish_ingredients_3 = DishIngredient.create!(dish_id: @dish_1.id, ingredient_id: @ingredient_3.id)
+  @dish_ingredients_4 = DishIngredient.create!(dish_id: @dish_1.id, ingredient_id: @ingredient_4.id)
+  @dish_ingredients_5 = DishIngredient.create!(dish_id: @dish_2.id, ingredient_id: @ingredient_5.id)
+  @dish_ingredients_6 = DishIngredient.create!(dish_id: @dish_2.id, ingredient_id: @ingredient_6.id)
+  @dish_ingredients_7 = DishIngredient.create!(dish_id: @dish_3.id, ingredient_id: @ingredient_7.id)
+  @dish_ingredients_8 = DishIngredient.create!(dish_id: @dish_3.id, ingredient_id: @ingredient_8.id)
+  @dish_ingredients_9 = DishIngredient.create!(dish_id: @dish_4.id, ingredient_id: @ingredient_9.id)
+  @dish_ingredients_10 = DishIngredient.create!(dish_id: @dish_4.id, ingredient_id: @ingredient_10.id)
+end
