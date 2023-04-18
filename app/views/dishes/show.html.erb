@@ -6,8 +6,19 @@
 <br>
 <p>Chef: <%= @chef.name %></p>
 <br>
-<ul id="ingredient-list">
-  <% @dish.ingredients.each do |ingredient| %>
-    <li><%= ingredient.name %></li>
-  <% end %>
-</ul>
+<section id="ingredients">
+<h3>Ingredients</h3>
+  <ul id="ingredient-list">
+    <% @dish.ingredients.each do |ingredient| %>
+      <li><%= ingredient.name %></li>
+    <% end %>
+  </ul>
+  <div id= "add-ingredient">
+    <p>Add Ingredient to Dish</p>
+    <%= form_with url: dish_ingredients_path(@dish), method: :post, local: true do |f| %>
+      <%= f.label :ingredient_id, "Ingredient ID:" %>
+      <%= f.text_field :ingredient_id %>
+      <%= f.submit "Submit" %>
+    <% end %>
+  </div>
+</section>
